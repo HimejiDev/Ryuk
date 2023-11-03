@@ -1,0 +1,24 @@
+{
+  "name": "shitsabouttogodown",
+  "version": "0.0.1",
+  "description": "🧨",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node src/bot.js",
+    "start": "node src/bot.js"
+  },
+  "author": "Ruyk",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "chalk": "^4.1.2",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1",
+    "ms": "^2.1.3",
+    "path": "^0.12.7",
+    "prompt-sync": "^4.2.0"
+  }
+}
