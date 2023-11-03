@@ -44,7 +44,14 @@ module.exports = client;
   }
 });
 
-if (log.input(`Load Config [y/n]`) === "y") {
+var input = log.input(`Load Config [y/n/e(xit)]`);
+while (input !== "y" && input !== "n" && input !== "e") {
+  input = log.input(`Load Config [y/n/e(xit)]`);
+}
+if (input === "e") {
+  log.success(`Exiting...`);
+  process.exit();
+} else if (input === "y") {
   client.INFO = fs.readFileSync("./config", "utf8").split("\n");
   client.INFO[0] = client.INFO[0].replace(/\r/g, "");
 } else {
