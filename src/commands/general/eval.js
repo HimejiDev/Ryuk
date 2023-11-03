@@ -1,4 +1,5 @@
 const log = require("../../logger");
+const chalk = require("chalk");
 
 module.exports = {
   name: "eval",
@@ -6,6 +7,7 @@ module.exports = {
   aliases: [],
   usage: "eval <code>",
   run: async function (client, args) {
-    eval(args.join(" "));
+    const variabele = eval(args.join(" "));
+    variabele ? log.info(chalk.greenBright(`[EVAL] ${variabele}`)) : undefined;
   },
 };
