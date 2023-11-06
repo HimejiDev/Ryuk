@@ -44,6 +44,7 @@ npm install
 ```
 YOUR_BOT_TOKEN
 YOUR_GUILD_ID
+YOUR_WEBHOOK_URL
 ```
 
 6. **Start the Bot**:

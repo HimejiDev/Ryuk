@@ -59,6 +59,8 @@ if (input.toLowerCase() === "e") {
 } else if (input.toLowerCase() === "y") {
   client.INFO = fs.readFileSync("./config", "utf8").split("\n");
   client.INFO[0] = client.INFO[0].replace(/\r/g, "");
+  client.INFO[1] = client.INFO[1].replace(/\r/g, "");
+  client.INFO[2] = client.INFO[2].replace(/\r/g, "");
 } else {
   client.INFO = [];
 }
