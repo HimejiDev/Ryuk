@@ -61,6 +61,7 @@ npm start
 
 - For a list of available commands, type `help` in the terminal.
 - Use the bot commands to manage your server and explore its capabilities.
+- Join the [discord](https://discord.gg/yAwmqcxkKY) for updates and support.
 
 ## Disclaimer ⚠️
 
