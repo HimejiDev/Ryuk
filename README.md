@@ -66,7 +66,7 @@ npm start
 
 ## Disclaimer ⚠️
 
-This bot is intended for educational purposes only. Misuse or abuse of the bot may violate Discord's Terms of Service and could lead to account and/or bot suspension or legal consequences. Use this bot responsibly and only on servers you have permission to manage.
+This bot is intended for educational purposes only. Misuse or abuse of the bot may violate Discord's Terms of Service and could lead to account and/or bot suspension or legal consequences. Use this bot responsibly and only on servers you have permission to manage. The developers are NOT responsible for any damages done to any servers or members. ⚠️
 
 ## License 📜
 
