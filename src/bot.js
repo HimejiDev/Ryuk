@@ -57,10 +57,15 @@ if (input.toLowerCase() === "e") {
   log.success(`Exiting...`);
   process.exit();
 } else if (input.toLowerCase() === "y") {
-  client.INFO = fs.readFileSync("./config", "utf8").split("\n");
-  client.INFO[0] = client.INFO[0].replace(/\r/g, "");
-  client.INFO[1] = client.INFO[1].replace(/\r/g, "");
-  client.INFO[2] = client.INFO[2].replace(/\r/g, "");
+  try {
+    client.INFO = fs.readFileSync("./config", "utf8").split("\n");
+    client.INFO[0] = client.INFO[0].replace(/\r/g, "");
+    client.INFO[1] = client.INFO[1].replace(/\r/g, "");
+    client.INFO[2] = client.INFO[2].replace(/\r/g, "");
+  } catch (error) {
+    log.error(`Failed to load config. | ${error}`, "src/bot.js");
+    client.INFO = [];
+  }
 } else {
   client.INFO = [];
 }
