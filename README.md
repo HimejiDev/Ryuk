@@ -1,6 +1,6 @@
 # Ryuk 🧨
 
-<!-- ![Bot Logo](bot_logo.png) -->
+![Spongebob](spongebob.png)
 
 ## Description 📝
 
@@ -56,7 +56,7 @@ YOUR_WEBHOOK_URL
 npm start
 ```
 
-7. **Bot Commands**: Access the bot's commands in the server and explore its features. Please use the server nuke command responsibly.
+7. **Bot Commands**: Access the bot's commands in the server and explore its features. Please use the commands responsibly.
 
 ## Usage 🕹️
 
