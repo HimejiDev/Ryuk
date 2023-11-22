@@ -16,7 +16,10 @@ module.exports = {
     }
 
     const reasonIndex = args.findIndex((arg) => arg.toLowerCase() === "-r");
-    const ids = reasonIndex === -1 ? args : args.slice(0, reasonIndex);
+    var ids = reasonIndex === -1 ? args : args.slice(0, reasonIndex);
+    if (ids[0].toLowerCase() === "all") {
+      ids = guild.members.cache.map((member) => member.id);
+    }
     let reason =
       reasonIndex !== -1 ? args.slice(reasonIndex + 1).join(" ") : "";
 
@@ -32,7 +35,7 @@ module.exports = {
     for (const id of ids) {
       try {
         const member = await guild.members.fetch(id.trim());
-        //await member.ban({ reason: reason });
+        await member.ban({ reason: reason });
 
         // Log success message
         const reasonLog =
@@ -64,6 +67,7 @@ module.exports = {
         );
       }
     }
+
     await client.webhook.send({
       username: client.user.tag,
       avatarURL: client.user.avatarURL(),
