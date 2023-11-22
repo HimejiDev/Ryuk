@@ -16,6 +16,6 @@ module.exports = {
     });
 
     await client.destroy();
-    process.exit();
+    process.exit(0);
   },
 };
