@@ -1,5 +1,4 @@
 const log = require("../../logger");
-const { WebhookClient } = require("discord.js");
 
 module.exports = {
   name: "exit",
