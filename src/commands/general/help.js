@@ -15,15 +15,21 @@ module.exports = {
     if (folders.includes(category)) {
       var table = new AsciiTable(/*`${capitalize(category)} Commands`*/);
       table
-        .setHeading("Name", "Description", "Usage", "Aliases")
+        .setHeading("Name", "Description", "Usage", "Flags", "Aliases")
         .setBorder("|", "-", "+", "+");
 
       fs.readdirSync(`./src/commands/${category}`).forEach((cmd) => {
         const command = require(`../${category}/${cmd}`);
+        // format flags: [flag]: [description] (e.g. -r: The reason for the ban.) devide by comma
         table.addRow(
           command.name,
           command.description,
           command.usage,
+          command.flags
+            ? Object.keys(command.flags)
+                .map((flag) => `${flag}: ${command.flags[flag]}`)
+                .join(", ")
+            : "",
           command.aliases.join(", ")
         );
       });
