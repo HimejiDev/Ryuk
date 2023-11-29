@@ -35,9 +35,17 @@ module.exports = {
             );
             unbans++;
           })
-          .catch((err) => log.error(err, "src/commands/member/unban.js"));
+          .catch((err) =>
+            log.error(
+              `Failed to ban member with ID ${id.trim()}: ${err}`,
+              "src/commands/member/unban.js"
+            )
+          );
       } catch (err) {
-        log.error(err, "src/commands/member/unban.js");
+        log.error(
+          `Failed to ban member with ID ${id.trim()}: ${err}`,
+          "src/commands/member/unban.js"
+        );
       }
     }
 
