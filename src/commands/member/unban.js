@@ -23,16 +23,19 @@ module.exports = {
 
     for (const id of ids) {
       try {
-        const member = await guild.members.unban(id.trim());
-        log.success(
-          `${chalk.gray("[")}${chalk.green("+")}${chalk.gray(
-            "]"
-          )} Unbanned ${chalk.white(member.tag)} from ${chalk.white(
-            guild.name
-          )}`
-        );
-
-        unbans++;
+        await guild.bans
+          .remove(id.trim())
+          .then((user) => {
+            log.success(
+              `${chalk.gray("[")}${chalk.green("+")}${chalk.gray(
+                "]"
+              )} Unbanned ${chalk.white(user.tag)} from ${chalk.white(
+                guild.name
+              )}`
+            );
+            unbans++;
+          })
+          .catch((err) => log.error(err, "src/commands/member/unban.js"));
       } catch (err) {
         log.error(err, "src/commands/member/unban.js");
       }
