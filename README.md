@@ -4,9 +4,9 @@
 
 ## Description 📝
 
-This Discord bot is a multi-purpose tool designed for educational purposes. It provides a range of commands for server management, moderation, and more, with a primary focus on demonstrating how a bot can be used to control a server, including destructive actions like a server nuke 💥. The bot is controlled via the terminal, making it a convenient learning tool for aspiring bot developers and server administrators.
+This project is a multi-purpose tool designed for educational purposes. It provides a range of commands for server management, moderation, and more, with a primary focus on demonstrating how a bot can be used to control a server, including destructive actions like a server nuke 💥. The bot is controlled via the terminal, making it a convenient learning tool for aspiring bot developers and server administrators.
 
-Please use this bot responsibly and only in a controlled environment, such as your personal server. Do not use it to disrupt or harm other communities. It is essential to respect Discord's Terms of Service and Community Guidelines.
+Please use this project responsibly and only in a controlled environment, such as your personal server. Do not use it to disrupt or harm other communities. It is essential to respect Discord's Terms of Service and Community Guidelines.
 
 ## Features 🚀
 
@@ -19,13 +19,13 @@ Please use this bot responsibly and only in a controlled environment, such as yo
 
 ## Getting Started 🛠️
 
-1. **Prerequisites**: Before using this bot, ensure you have Node.js and npm installed on your computer.
+1. **Prerequisites**: Before using this project, ensure you have Node.js and npm installed on your computer.
 
 2. **Clone the Repository**: Clone this repository to your local machine:
 
 ```ssh
-git clone https://github.com/yourusername/discord-bot.git
-cd discord-bot
+git clone https://github.com/HimejiDev/Ryuk.git
+cd Ryuk
 ```
 
 3. **Install Dependencies**: Run the following command to install the required dependencies:
@@ -66,7 +66,7 @@ npm start
 
 ## Disclaimer ⚠️
 
-This bot is intended for educational purposes only. Misuse or abuse of the bot may violate Discord's Terms of Service and could lead to account and/or bot suspension or legal consequences. Use this bot responsibly and only on servers you have permission to manage. The developers are NOT responsible for any damages done to any servers or members. ⚠️
+This project is intended for educational purposes only. Misuse or abuse of the project may violate Discord's Terms of Service and could lead to account and/or bot suspension or legal consequences. Use this project responsibly and only on servers you have permission to manage. The developers are NOT responsible for any damages done to any servers or members. ⚠️
 
 ## License 📜
 
