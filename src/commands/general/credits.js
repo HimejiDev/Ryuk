@@ -5,6 +5,7 @@ module.exports = {
   description: "Shows the develoopers of this program.",
   aliases: [],
   usage: "credits",
+  flags: {},
   run: async function (client, args) {
     log.success(`This bot was made by @himeji. >> https://himeji.dev/`);
     log.success(

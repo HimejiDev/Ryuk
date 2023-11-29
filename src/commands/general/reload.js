@@ -6,6 +6,7 @@ module.exports = {
   description: "Reloads the guild.",
   aliases: [],
   usage: "reload",
+  flags: {},
   run: async function (client, args) {
     try {
       const GUILD_ID = client.INFO[1] || client.target_guild.id;

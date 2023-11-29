@@ -5,6 +5,7 @@ module.exports = {
   description: "Exit the bot.",
   aliases: [],
   usage: "exit",
+  flags: {},
   run: async function (client, args) {
     log.success("Exiting bot. Bye!");
 

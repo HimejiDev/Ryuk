@@ -7,6 +7,7 @@ module.exports = {
   description: "Shows all the commands.",
   aliases: ["h"],
   usage: "help [category]",
+  flags: {},
   run: async function (client, args) {
     var tables = [];
     const folders = fs.readdirSync(`./src/commands`);

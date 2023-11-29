@@ -6,6 +6,7 @@ module.exports = {
   description: "Sends a message to the guild.",
   aliases: [],
   usage: "send <channelid> <message>",
+  flags: {},
   run: async function (client, args) {
     const guild = client.target_guild;
     if (args.length < 1) {

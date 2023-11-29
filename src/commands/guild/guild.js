@@ -6,6 +6,7 @@ module.exports = {
   description: "Shows info about the target guild.",
   aliases: ["ginfo"],
   usage: "guild",
+  flags: {},
   run: async function (client, args) {
     const guild = client.target_guild;
 

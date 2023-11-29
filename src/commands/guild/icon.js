@@ -5,6 +5,7 @@ module.exports = {
   description: "Changes/Shows the Guild's icon.",
   aliases: [],
   usage: "icon [url]",
+  flags: {},
   run: async function (client, args) {
     const guild = client.target_guild;
 
