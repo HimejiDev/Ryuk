@@ -31,7 +31,7 @@ module.exports = {
         flags["-r"] = args[i + 1];
         i++;
       } else if (arg.startsWith("-t")) {
-        flags["-t"] = parseInt(args[i + 1]);
+        flags["-t"] = parseInt(args[i + 1] > 2419201 ? 2419201 : args[i + 1]);
         i++;
       } else {
         ids.push(arg);
