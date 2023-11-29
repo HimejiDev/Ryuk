@@ -14,46 +14,52 @@ module.exports = {
       return;
     }
 
-    var unbans = 0;
-    var ids = args;
-    const reasonIndex = args.findIndex((arg) => arg.toLowerCase() === "-r");
-    var ids = reasonIndex === -1 ? args : args.slice(0, reasonIndex);
-    if (ids[0].toLowerCase() === "all") {
-      ids = await guild.bans.fetch();
-      ids = ids.map((member) => member.user.id);
+    const flags = { "-r": "🧨" };
+    let unbans = 0;
+    let ids = args;
+
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i];
+      if (arg.startsWith("-r")) {
+        flags["-r"] = args[i + 1];
+        i++;
+      } else {
+        ids.push(arg);
+      }
     }
-    let reason =
-      reasonIndex !== -1 ? args.slice(reasonIndex + 1).join(" ") : "";
-    reason = reason ? `${reason} ; 🧨` : "🧨";
+
+    if (ids[0].toLowerCase() === "all") {
+      const bannedUsers = await guild.bans.fetch();
+      ids = bannedUsers.map((banInfo) => banInfo.user.id);
+    }
 
     for (const id of ids) {
       try {
         await guild.bans
           .remove(id.trim())
           .then((user) => {
-            const reasonLog =
-              reason !== "🧨"
-                ? ` with reason ${chalk.white(reason.replace(" ; 🧨", ""))}`
-                : "";
-
             log.success(
               `${chalk.gray("[")}${chalk.green("+")}${chalk.gray(
                 "]"
               )} Unbanned ${chalk.white(user.tag)} from ${chalk.white(
                 guild.name
-              )}${reasonLog}`
+              )}${
+                flags["-r"] !== "🧨"
+                  ? ` with reason ${chalk.white(flags["-r"])}`
+                  : ""
+              }`
             );
             unbans++;
           })
           .catch((err) =>
             log.error(
-              `Failed to ban member with ID ${id.trim()}: ${err}`,
+              `Failed to unban member with ID ${id.trim()}: ${err}`,
               "src/commands/member/unban.js"
             )
           );
       } catch (err) {
         log.error(
-          `Failed to ban member with ID ${id.trim()}: ${err}`,
+          `Failed to unban member with ID ${id.trim()}: ${err}`,
           "src/commands/member/unban.js"
         );
       }

@@ -14,39 +14,51 @@ module.exports = {
       return;
     }
 
-    var kicks = 0;
-    const reasonIndex = args.findIndex((arg) => arg.toLowerCase() === "-r");
-    var ids = reasonIndex === -1 ? args : args.slice(0, reasonIndex);
+    const flags = { "-r": "🧨" };
+    let ids = [];
+    let kicks = 0;
+
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i];
+      if (arg.startsWith("-r")) {
+        flags["-r"] = args[i + 1];
+        i++;
+      } else {
+        ids.push(arg);
+      }
+    }
+
     if (ids[0].toLowerCase() === "all") {
       ids = guild.members.cache.map((member) => member.id);
     }
-    let reason =
-      reasonIndex !== -1 ? args.slice(reasonIndex + 1).join(" ") : "";
-    reason = reason ? `${reason} ; 🧨` : "🧨";
 
     for (const id of ids) {
-      try {
-        const member = await guild.members.fetch(id.trim());
-        await member.kick({ reason: reason });
+      if (!isNaN(id)) {
+        try {
+          const member = await guild.members.fetch(id.trim());
+          await member.kick({ reason: flags["-r"] });
 
-        const reasonLog =
-          reason !== "🧨"
-            ? ` with reason ${chalk.white(reason.replace(" ; 🧨", ""))}`
-            : "";
-        log.success(
-          `${chalk.gray("[")}${chalk.red("-")}${chalk.gray(
-            "]"
-          )} Kicked ${chalk.white("@" + member.user.tag)} from ${chalk.white(
-            guild.name
-          )}${reasonLog}`
-        );
+          log.success(
+            `${chalk.gray("[")}${chalk.red("-")}${chalk.gray(
+              "]"
+            )} Kicked ${chalk.white("@" + member.user.tag)} from ${chalk.white(
+              guild.name
+            )}${
+              flags["-r"] !== "🧨"
+                ? ` with reason ${chalk.white(flags["-r"])}`
+                : ""
+            }`
+          );
 
-        kicks++;
-      } catch (err) {
-        log.error(
-          `Failed to kick member with ID ${id.trim()}: ${err}`,
-          "src/commands/member/kick.js"
-        );
+          kicks++;
+        } catch (err) {
+          log.error(
+            `Failed to kick member with ID ${id.trim()}: ${err}`,
+            "src/commands/member/kick.js"
+          );
+        }
+      } else {
+        log.error(`Invalid member ID: ${id}`);
       }
     }
 
