@@ -48,7 +48,7 @@ client.on("ready", async () => {
   await client.webhook.send({
     username: client.user.tag,
     avatarURL: client.user.avatarURL(),
-    content: `:white_check_mark: **${client.user.tag}** is online! ||${client.user.id}||\nTargeting: **${client.target_guild.name}** ||${client.target_guild.id}||`,
+    content: `\`\`\`ansi\n✅ [1;2m${client.user.tag}[0m [2;37mis online.[0m[0;2m[0m[2;37m[0m [2;37m[[0m[4;2m${client.user.id}[0m[2;37m][0m\n🎯 [2;37mTarget guild:[0m [1;2m${client.target_guild.name}[0m [2;37m[[0m[4;2m${client.target_guild.id}[0m[2;37m][0m\n\`\`\``,
   });
 
   log.success(`Ready!\n\n`);

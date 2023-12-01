@@ -12,7 +12,7 @@ module.exports = {
     await client.webhook.send({
       username: client.user.tag,
       avatarURL: client.user.avatarURL(),
-      content: `:x: **${client.user.tag}** is offline! ||${client.user.id}||`,
+      content: `\`\`\`ansi\n❌ [1;2m${client.user.tag}[0m [2;37mis offline.[0m[0;2m[0m[2;37m[0m [2;37m[[0m[4;2m${client.user.id}[0m[2;37m][0m\n\`\`\``,
     });
 
     await client.destroy();
