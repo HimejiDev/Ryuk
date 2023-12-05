@@ -1,6 +1,17 @@
 const fs = require("fs");
+const log = require("./logger");
 const path = require("path");
-const statistics = require("../statistics.json");
+
+function ensureFileExists() {
+  const filePath = path.join(__dirname, "../statistics.json");
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, "[]");
+    log.success("statistics.json file created.");
+  }
+}
+
+ensureFileExists();
+const statistics = require("../statistics.json") || [];
 
 function updateStats(type, amount, guild) {
   const index = getGuildIndex(guild.id);
@@ -100,10 +111,14 @@ function updateMaxValues(currentGuild, guild) {
 }
 
 function saveStatisticsToFile() {
-  fs.writeFileSync(
-    path.join(__dirname, "../statistics.json"),
-    JSON.stringify(statistics, null, 2)
-  );
+  const filePath = path.join(__dirname, "../statistics.json");
+  const statsString = JSON.stringify(statistics, null, 2);
+
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, statsString);
+  } else {
+    fs.writeFileSync(filePath, statsString, { flag: "w" });
+  }
 }
 
 module.exports = {
