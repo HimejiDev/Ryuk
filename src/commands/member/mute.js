@@ -1,4 +1,5 @@
 const log = require("../../logger");
+const stats = require("../../statistics");
 const chalk = require("chalk");
 
 module.exports = {
@@ -76,6 +77,7 @@ module.exports = {
       }
     }
 
+    stats.mutes(mutes, guild);
     await client.webhook.send({
       username: client.user.tag,
       avatarURL: client.user.avatarURL(),

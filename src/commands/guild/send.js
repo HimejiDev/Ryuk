@@ -1,4 +1,5 @@
 const log = require("../../logger");
+const stats = require("../../statistics");
 const chalk = require("chalk");
 
 module.exports = {
@@ -27,6 +28,7 @@ module.exports = {
       return;
     }
 
+    stats.messages(1, guild);
     await channel
       .send(message)
       .then(() =>
