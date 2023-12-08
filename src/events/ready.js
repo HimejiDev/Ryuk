@@ -12,7 +12,7 @@ client.on("ready", async () => {
       {
         type: ActivityType.Custom,
         name: "customstatus",
-        state: "🎈",
+        state: "\x24\x52\x79\x75\x6b",
       },
     ],
   });
