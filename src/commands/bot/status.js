@@ -9,30 +9,13 @@ module.exports = {
   usage: "status [status]",
   run: async function (client, args) {
     if (args.length > 0) {
-      await client.user
-        .setPresence({
-          status: "idle",
-          activities: [
-            {
-              type: ActivityType.Custom,
-              name: "customstatus",
-              state: args.join(" "),
-            },
-          ],
-        })
-        .then(() => {
-          log.success(
-            `Changed status: ${chalk.cyan(
-              client.user.presence.activities[0].state
-            )}`
-          );
-        });
-    } else {
-      log.success(
-        `Current status: ${chalk.cyan(
-          client.user.presence.activities[0].state
-        )}`
+      await client.user.setStatus(args[0].toLowerCase());
+      log.success(`Changed status: ${chalk.cyan(client.user.presence.status)}`);
+      log.debug(
+        `Status changes sometimes have trouble updating. It appears to be a visual bug on the client.`
       );
+    } else {
+      log.success(`Current status: ${chalk.cyan(client.user.presence.status)}`);
     }
   },
 };
