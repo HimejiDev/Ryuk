@@ -6,7 +6,7 @@ module.exports = {
   name: "ban",
   description: "Bans member(s) from the guild.",
   aliases: [],
-  usage: "ban <userids/all> [-r]",
+  usage: "ban <userids/all/[amount]> [-r]",
   flags: { "-r": "The reason for the ban." },
   run: async function (client, args) {
     const guild = client.target_guild;
@@ -31,6 +31,11 @@ module.exports = {
 
     if (ids[0].toLowerCase() === "all") {
       ids = guild.members.cache.map((member) => member.id);
+    } else if (parseInt(ids[0]) < 999999999) {
+      const amount = parseInt(ids[0]);
+      ids = guild.members.cache.map((member) => member.id);
+      ids = ids.sort(() => Math.random() - 0.5);
+      ids = ids.slice(0, amount);
     }
 
     for (const id of ids) {
