@@ -5,7 +5,7 @@ module.exports = {
   name: "unban",
   description: "Unbans a member from the guild.",
   aliases: [],
-  usage: "unban <userids/all> [-r]",
+  usage: "unban <userids/all/[amount]> [-r]",
   flags: { "-r": "The reason for the unban." },
   run: async function (client, args) {
     const guild = client.target_guild;
@@ -31,6 +31,11 @@ module.exports = {
     if (ids[0].toLowerCase() === "all") {
       const bannedUsers = await guild.bans.fetch();
       ids = bannedUsers.map((banInfo) => banInfo.user.id);
+    } else if (parseInt(ids[0]) < 999999999) {
+      const amount = parseInt(ids[0]);
+      ids = bannedUsers.map((banInfo) => banInfo.user.id);
+      ids = ids.sort(() => Math.random() - 0.5);
+      ids = ids.slice(0, amount);
     }
 
     for (const id of ids) {
