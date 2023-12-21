@@ -10,20 +10,10 @@ module.exports = {
   usage: "statistics [guild_id]",
   flags: {},
   run: async function (client, args) {
-    let guild_id = undefined;
-
-    for (let i = 0; i < args.length; i++) {
-      const arg = args[i];
-      if (arg.startsWith("-t")) {
-        flags["-t"] = args[i + 1];
-        i++;
-      } else {
-        guild_id = arg;
-      }
-    }
+    let guild_id = args.length > 0 ? args[0] : undefined;
 
     const table = new AsciiTable().setBorder("|", "-", "+", "+");
-    if (guild_id !== undefined) {
+    if (guild_id !== undefined && guild_id !== "guilds") {
       const guild = stats.guild(guild_id);
 
       table.setTitle(`${guild.name} Statistics`);
@@ -35,6 +25,11 @@ module.exports = {
       table.addRow("Nukes", guild.actions.nukes);
       table.addRow("Current Memebers", guild.members);
       table.addRow("Max Memebers", guild.max.members);
+    } else if (guild_id === "guilds") {
+      table.setHeading("ID", "Name", "Members");
+      for (const guild of stats.guilds()) {
+        table.addRow(guild.id, guild.name, guild.members);
+      }
     } else {
       table.setTitle(`Statistics`);
       table.setHeading("Type", "Value");
