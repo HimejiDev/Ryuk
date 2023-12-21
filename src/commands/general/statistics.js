@@ -33,7 +33,7 @@ module.exports = {
     } else {
       table.setTitle(`Statistics`);
       table.setHeading("Type", "Value");
-      table.addRow("Guilds", stats.get("guilds").length);
+      table.addRow("Guilds", stats.guilds().length);
       table.addRow("Bans", stats.get("bans"));
       table.addRow("Kicks", stats.get("kicks"));
       table.addRow("Mutes", stats.get("mutes"));
