@@ -6,7 +6,7 @@ module.exports = {
   name: "mute",
   description: "Mutes member(s) in the guild.",
   aliases: ["timeout"],
-  usage: "mute <userids/all> [-r -t]",
+  usage: "mute <userids/all/[amount]> [-r -t]",
   flags: {
     "-r": "The reason for the mute.",
     "-t": "The time in seconds (default: 60s).",
@@ -41,10 +41,11 @@ module.exports = {
 
     if (ids[0].toLowerCase() === "all") {
       ids = guild.members.cache.map((member) => member.id);
-    }
-    if (ids.length === 0) {
-      log.error("You must provide at least one member ID");
-      return;
+    } else if (parseInt(ids[0]) < 999999999) {
+      const amount = parseInt(ids[0]);
+      ids = guild.members.cache.map((member) => member.id);
+      ids = ids.sort(() => Math.random() - 0.5);
+      ids = ids.slice(0, amount);
     }
 
     for (const id of ids) {
