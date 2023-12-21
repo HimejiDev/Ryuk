@@ -40,6 +40,12 @@ module.exports = {
       table.addRow("Nukes", stats.get("nukes"));
     }
 
+    await client.webhook.send({
+      username: `${client.user.username} Statistics`,
+      avatarURL: client.user.avatarURL(),
+      content: `\`\`\`ansi\n${table.toString()}\`\`\``,
+    });
+
     const rows = table.toString().split("\n");
     for (let i = 0; i < rows.length; i++) {
       log.info(rows[i]);
