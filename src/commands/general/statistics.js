@@ -19,6 +19,7 @@ module.exports = {
       table.setTitle(`${guild.name} Statistics`);
       table.setHeading("Type", "Value");
       table.addRow("ID", guild.id);
+      table.addRow("Messages", guild.actionsmessages);
       table.addRow("Bans", guild.actions.bans);
       table.addRow("Kicks", guild.actions.kicks);
       table.addRow("Mutes", guild.actions.mutes);
@@ -34,6 +35,7 @@ module.exports = {
       table.setTitle(`Statistics`);
       table.setHeading("Type", "Value");
       table.addRow("Guilds", stats.guilds().length);
+      table.addRow("Messages", stats.get("messages"));
       table.addRow("Bans", stats.get("bans"));
       table.addRow("Kicks", stats.get("kicks"));
       table.addRow("Mutes", stats.get("mutes"));
