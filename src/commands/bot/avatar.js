@@ -3,9 +3,10 @@ const chalk = require("chalk");
 
 module.exports = {
   name: "avatar",
-  description: "Change the bot's avatar.",
+  description: "Change or shows the bot's avatar.",
   aliases: [],
-  usage: "avatar <url>",
+  usage: "avatar [url]",
+  flags: {},
   run: async function (client, args) {
     const url = args.join(" ");
     if (!url)

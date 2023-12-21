@@ -3,9 +3,10 @@ const chalk = require("chalk");
 
 module.exports = {
   name: "username",
-  description: "Change the bot's username.",
+  description: "Change or shows the bot's username.",
   aliases: [],
-  usage: "username <name>",
+  usage: "username [name]",
+  flags: {},
   run: async function (client, args) {
     const name = args.join(" ");
     if (!name)

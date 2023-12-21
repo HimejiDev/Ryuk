@@ -4,7 +4,7 @@ const { ActivityType } = require("discord.js");
 
 module.exports = {
   name: "activity",
-  description: "Shows and changes the bot's activity.",
+  description: "Shows or changes the bot's activity.",
   aliases: [],
   usage: "activity [type] [state]",
   flags: {},

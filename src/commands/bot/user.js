@@ -6,6 +6,7 @@ module.exports = {
   description: "Shows info about the current user.",
   aliases: ["info", "uinfo"],
   usage: "user",
+  flags: {},
   run: async function (client, args) {
     var table = new AsciiTable("User Info");
     table.setBorder("|", "-", "+", "+");
