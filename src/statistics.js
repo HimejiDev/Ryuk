@@ -15,8 +15,6 @@ const statistics = require("../statistics.json") || [];
 
 function updateStats(type, amount, guild) {
   const index = getGuildIndex(guild.id);
-
-  console.log(index);
   if (index !== -1) {
     updateExistingGuildStats(index, type, amount, guild);
   } else {
@@ -121,6 +119,10 @@ function saveStatisticsToFile() {
   }
 }
 
+function getGuilds() {
+  return statistics;
+}
+
 module.exports = {
   bans: (amount, guild) => updateStats("bans", amount, guild),
   kicks: (amount, guild) => updateStats("kicks", amount, guild),
@@ -142,4 +144,5 @@ module.exports = {
 
   get: (type) => getTotalActions(type),
   guild: (guild) => statistics[getGuildIndex(guild)],
+  guilds: () => getGuilds(),
 };
