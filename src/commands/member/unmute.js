@@ -4,7 +4,7 @@ const chalk = require("chalk");
 module.exports = {
   name: "unmute",
   description: "Mutes member(s) in the guild.",
-  aliases: ["rtimeout"],
+  aliases: ["rtimeout", "rmute"],
   usage: "unmute <userids/all/[amount]> [-r]",
   flags: {
     "-r": "The reason for the mute.",
