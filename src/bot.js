@@ -75,7 +75,6 @@ var TOKEN = client.INFO[0] || log.input(`Bot Token`);
 function login() {
   log.info(`Attempting to login in...`);
   client.login(TOKEN).catch((error) => {
-    console.log(error.code);
     if (error.code === "TokenInvalid") {
       log.error(`Failed to login, try again. | ${error}`, "src/bot.js");
       TOKEN = client.INFO[0] || log.input(`Bot Token`);
