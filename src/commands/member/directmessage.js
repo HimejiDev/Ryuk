@@ -20,7 +20,7 @@ module.exports = {
 
     //const flags = { "-m": "" };
     let ids = args;
-    let bans = 0;
+    let dms = 0;
 
     // for (let i = 0; i < args.length; i++) {
     //   const arg = args[i];
@@ -64,7 +64,7 @@ module.exports = {
               )}`
             );
 
-            bans++;
+            dms++;
           } catch (err) {
             log.error(
               `Failed to send direct message to member with ID ${id.trim()}: ${err}`,
@@ -77,11 +77,11 @@ module.exports = {
       }
     }
 
-    stats.bans(bans, guild);
+    stats.dms(dms, guild);
     await client.webhook.send({
       username: client.user.tag,
       avatarURL: client.user.avatarURL(),
-      content: `\`\`\`ansi\n🧨 Send direct message to members! [2;37m${bans}[0m/[2;37m${ids.length}[0m\n\`\`\``,
+      content: `\`\`\`ansi\n🧨 Send direct message to members! [2;37m${dms}[0m/[2;37m${ids.length}[0m\n\`\`\``,
     });
   },
 };
