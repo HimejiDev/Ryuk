@@ -48,6 +48,7 @@ module.exports = {
       ids = ids.slice(0, amount);
     }
 
+    flags["t"] = parseInt(flags["t"] > 2419200 ? 2419200 : flags["t"]);
     for (const id of ids) {
       if (!isNaN(id)) {
         try {
