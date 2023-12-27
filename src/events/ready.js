@@ -23,12 +23,12 @@ client.on("ready", async () => {
     )}]`
   );
 
-  const GUILD_ID = client.INFO[1] || log.input(`Guild ID`);
+  const GUILD_ID = client.INFO[1] || log.input(`Guild ID`, client);
   client.target_guild = client.guilds.cache.get(GUILD_ID);
 
   while (!client.target_guild) {
     log.warning(`Guild not found. Please try again.`);
-    const GUILD_ID = log.input(`Guild ID`);
+    const GUILD_ID = log.input(`Guild ID`, client);
     client.target_guild = client.guilds.cache.get(GUILD_ID);
   }
 
@@ -38,10 +38,10 @@ client.on("ready", async () => {
     )}]`
   );
 
-  var webhook_url = client.INFO[2] || log.input(`Webhook URL`);
+  var webhook_url = client.INFO[2] || log.input(`Webhook URL`, client);
   while (!(await checkDiscordWebhook(webhook_url))) {
     log.warning(`Webhook is not valid. Please try again.`);
-    webhook_url = log.input(`Webhook URL`);
+    webhook_url = log.input(`Webhook URL`, client);
   }
 
   client.webhook = new WebhookClient({ url: webhook_url });

@@ -33,6 +33,8 @@ const client = new Client({
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.historyIndex = 0;
+client.commandHistory = [];
 
 module.exports = client;
 
@@ -45,13 +47,13 @@ module.exports = client;
 });
 
 const input_string = `Load config? [Y]es/[N]o/[E]xit`;
-var input = log.input(input_string);
+var input = log.input(input_string, client);
 while (
   input.toLowerCase() !== "y" &&
   input.toLowerCase() !== "n" &&
   input.toLowerCase() !== "e"
 ) {
-  input = log.input(input_string);
+  input = log.input(input_string, client);
 }
 if (input.toLowerCase() === "e") {
   log.success(`Exiting...`);
@@ -70,14 +72,14 @@ if (input.toLowerCase() === "e") {
   client.INFO = [];
 }
 
-var TOKEN = client.INFO[0] || log.input(`Bot Token`);
+var TOKEN = client.INFO[0] || log.input(`Bot Token`, client);
 
 function login() {
   log.info(`Attempting to login in...`);
   client.login(TOKEN).catch((error) => {
     if (error.code === "TokenInvalid") {
       log.error(`Failed to login, try again. | ${error}`, "src/bot.js");
-      TOKEN = client.INFO[0] || log.input(`Bot Token`);
+      TOKEN = client.INFO[0] || log.input(`Bot Token`, client);
       login();
     } else {
       log.error(`Failed to login. | ${error}`, "src/bot.js");

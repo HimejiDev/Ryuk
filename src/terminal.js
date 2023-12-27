@@ -2,7 +2,7 @@ const log = require("./logger");
 const { parseCommand } = require("./functions");
 
 module.exports = async (client) => {
-  const input = log.input();
+  const input = log.input("", client);
 
   const cmd = input.split(" ")[0].toLowerCase();
   const command =
