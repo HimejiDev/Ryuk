@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["ginfo"],
   usage: "guild",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const guild = client.target_guild;
 
     var table = new AsciiTable("Guild Info");

@@ -6,7 +6,7 @@ module.exports = {
   aliases: [],
   usage: "description [description]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const guild = client.target_guild;
 
     if (args.length > 0) {

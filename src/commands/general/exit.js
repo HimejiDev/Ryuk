@@ -6,7 +6,7 @@ module.exports = {
   aliases: [],
   usage: "exit",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     log.success("Exiting bot. Bye!");
 
     await client.webhook.send({

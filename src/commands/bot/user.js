@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["info", "uinfo"],
   usage: "user",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     var table = new AsciiTable("User Info");
     table.setBorder("|", "-", "+", "+");
 

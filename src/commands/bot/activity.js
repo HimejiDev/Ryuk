@@ -8,7 +8,7 @@ module.exports = {
   aliases: [],
   usage: "activity [type] [state]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     if (args.length > 1) {
       var activity = ActivityType.Custom;
       if (args[0].toLowerCase() == "playing") {

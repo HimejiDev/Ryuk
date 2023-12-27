@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["h"],
   usage: "help [category]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     var tables = [];
     const folders = fs.readdirSync(`./src/commands`);
     const category = args[0] ? args[0] : "general";

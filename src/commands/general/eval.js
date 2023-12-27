@@ -7,7 +7,7 @@ module.exports = {
   aliases: [],
   usage: "eval <code>",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const variabele = eval(args.join(" "));
     variabele ? log.info(chalk.greenBright(`[EVAL] ${variabele}`)) : undefined;
   },

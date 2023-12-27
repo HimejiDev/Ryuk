@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["stats"],
   usage: "statistics [guild_id]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     let guild_id = args.length > 0 ? args[0] : undefined;
 
     const table = new AsciiTable().setBorder("|", "-", "+", "+");

@@ -8,7 +8,7 @@ module.exports = {
   aliases: [],
   usage: "send <channelid> <message>",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const guild = client.target_guild;
     if (args.length < 1) {
       log.error("You must provide a channel ID");

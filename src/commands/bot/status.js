@@ -8,7 +8,7 @@ module.exports = {
   aliases: [],
   usage: "status [status]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     if (args.length > 0) {
       await client.user.setStatus(args[0].toLowerCase());
       log.success(`Changed status: ${chalk.cyan(client.user.presence.status)}`);

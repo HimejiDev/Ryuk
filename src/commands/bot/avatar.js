@@ -7,7 +7,7 @@ module.exports = {
   aliases: [],
   usage: "avatar [url]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const url = args.join(" ");
     if (!url)
       return log.success(

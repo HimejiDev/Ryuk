@@ -7,7 +7,7 @@ module.exports = {
   aliases: [],
   usage: "username [name]",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const name = args.join(" ");
     if (!name)
       return log.success(

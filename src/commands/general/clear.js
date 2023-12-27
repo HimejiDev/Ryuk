@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["cls"],
   usage: "clear",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     console.clear();
     log.error(`by @himeji. ${chalk.white(">>")} https://himeji.dev/\n`);
   },

@@ -7,7 +7,7 @@ module.exports = {
   aliases: [],
   usage: "reload",
   flags: {},
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     try {
       const GUILD_ID = client.INFO[1] || client.target_guild.id;
       client.target_guild = client.guilds.cache.get(GUILD_ID);
