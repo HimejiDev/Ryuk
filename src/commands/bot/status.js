@@ -12,7 +12,7 @@ module.exports = {
     if (args.length > 0) {
       await client.user.setStatus(args[0].toLowerCase());
       log.success(`Changed status: ${chalk.cyan(client.user.presence.status)}`);
-      log.debug(
+      log.warning(
         `Status changes sometimes have trouble updating. It appears to be a visual bug on the client.`
       );
     } else {

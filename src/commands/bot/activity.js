@@ -36,7 +36,7 @@ module.exports = {
           client.user.presence.activities[0].state
         )}`
       );
-      log.debug(
+      log.warning(
         `Activity changes sometimes have trouble updating. It appears to be a visual bug on the client.`
       );
     } else {
