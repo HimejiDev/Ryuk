@@ -78,5 +78,7 @@ async function checkDiscordWebhook(webhookURL) {
     });
 
     request.end();
+  }).catch((error) => {
+    return false;
   });
 }
