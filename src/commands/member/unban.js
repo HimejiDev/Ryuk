@@ -7,26 +7,26 @@ module.exports = {
   aliases: ["rban"],
   usage: "unban <userids/all/[amount]> [-r]",
   flags: { "-r": "The reason for the unban." },
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const guild = client.target_guild;
     if (args.length < 1) {
       log.error("You must provide a member ID");
       return;
     }
 
-    const flags = { "-r": "🧨" };
+    //const flags = { "-r": "🧨" };
     let unbans = 0;
     let ids = args;
 
-    for (let i = 0; i < args.length; i++) {
-      const arg = args[i];
-      if (arg.startsWith("-r")) {
-        flags["-r"] = args[i + 1];
-        i++;
-      } else {
-        ids.push(arg);
-      }
-    }
+    // for (let i = 0; i < args.length; i++) {
+    //   const arg = args[i];
+    //   if (arg.startsWith("-r")) {
+    //     flags["-r"] = args[i + 1];
+    //     i++;
+    //   } else {
+    //     ids.push(arg);
+    //   }
+    // }
 
     if (ids[0].toLowerCase() === "all") {
       const bannedUsers = await guild.bans.fetch();
@@ -48,11 +48,7 @@ module.exports = {
                 "]"
               )} Unbanned ${chalk.white(user.tag)} from ${chalk.white(
                 guild.name
-              )}${
-                flags["-r"] !== "🧨"
-                  ? ` with reason ${chalk.white(flags["-r"])}`
-                  : ""
-              }`
+              )}${flags["r"] ? ` with reason ${chalk.white(flags["r"])}` : ""}`
             );
             unbans++;
           })

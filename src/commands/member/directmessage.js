@@ -10,28 +10,28 @@ module.exports = {
   flags: {
     "-m": "The message to send.",
   },
-  run: async function (client, args) {
+  run: async function (client, args, flags) {
     const guild = client.target_guild;
     if (args.length < 1) {
       log.error("You must provide at least one member ID");
       return;
     }
 
-    const flags = { "-m": "" };
-    let ids = [];
+    //const flags = { "-m": "" };
+    let ids = args;
     let bans = 0;
 
-    for (let i = 0; i < args.length; i++) {
-      const arg = args[i];
-      if (arg.startsWith("-m")) {
-        flags["-m"] = args[i + 1];
-        i++;
-      } else {
-        ids.push(arg);
-      }
-    }
+    // for (let i = 0; i < args.length; i++) {
+    //   const arg = args[i];
+    //   if (arg.startsWith("-m")) {
+    //     flags["-m"] = args[i + 1];
+    //     i++;
+    //   } else {
+    //     ids.push(arg);
+    //   }
+    // }
 
-    if (flags["-m"] === "") {
+    if (flags["m"] === "") {
       log.error("You must provide a message to send.");
       return;
     }
@@ -49,7 +49,7 @@ module.exports = {
       if (!isNaN(id)) {
         try {
           const member = await guild.members.fetch(id.trim());
-          await member.send(flags["-m"]);
+          await member.send(flags["m"]);
           log.success(
             `${chalk.gray("[")}${chalk.red("-")}${chalk.gray("]")} Send ${
               flags["-m"]
