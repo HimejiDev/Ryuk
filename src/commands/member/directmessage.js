@@ -6,7 +6,7 @@ module.exports = {
   name: "directmessage",
   description: "Direct message members from the guild.",
   aliases: ["dm", "privatemessage", "pm"],
-  usage: "directmessage <userids/all/[amount]> [-m -s]",
+  usage: 'directmessage <userids/all/[amount]> -m "[message]" [-s <amount>]',
   flags: {
     "-m": "The message to send.",
     "-s": "The amount of messages to send.",

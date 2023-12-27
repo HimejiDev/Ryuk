@@ -5,7 +5,7 @@ module.exports = {
   name: "unmute",
   description: "Mutes member(s) in the guild.",
   aliases: ["rtimeout", "rmute"],
-  usage: "unmute <userids/all/[amount]> [-r]",
+  usage: 'unmute <userids/all/[amount]> [-r "<reason>"]',
   flags: {
     "-r": "The reason for the mute.",
   },

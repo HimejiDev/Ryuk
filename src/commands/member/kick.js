@@ -6,7 +6,7 @@ module.exports = {
   name: "kick",
   description: "Kicks member(s) from the guild.",
   aliases: [],
-  usage: "kick <userids/all/[amount]> [-r]",
+  usage: 'kick <userids/all/[amount]> [-r "<reason>"]',
   flags: { "-r": "The reason for the kick." },
   run: async function (client, args, flags) {
     const guild = client.target_guild;

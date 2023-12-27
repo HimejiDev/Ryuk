@@ -5,7 +5,7 @@ module.exports = {
   name: "invite",
   description: "Show, create, delete or disable invites.",
   aliases: ["invites", "inv"],
-  usage: "invite [-del -c -dis]",
+  usage: 'invite [-del <amount>] [-c "<channel id(s)>"] [-dis <T/F>]',
   flags: {
     "-del": "Amount of invites to delete.",
     "-c": "Channel id(s) to create invites for.",

@@ -6,7 +6,7 @@ module.exports = {
   name: "mute",
   description: "Mutes member(s) in the guild.",
   aliases: ["timeout"],
-  usage: "mute <userids/all/[amount]> [-r -t]",
+  usage: 'mute <userids/all/[amount]> [-r "<reason>"] [-t <time>]',
   flags: {
     "-r": "The reason for the mute.",
     "-t": "The time in seconds (default: 60s).",

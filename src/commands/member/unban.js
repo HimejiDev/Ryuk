@@ -5,7 +5,7 @@ module.exports = {
   name: "unban",
   description: "Unbans a member from the guild.",
   aliases: ["rban"],
-  usage: "unban <userids/all/[amount]> [-r]",
+  usage: 'unban <userids/all/[amount]> [-r "<reason>"]',
   flags: { "-r": "The reason for the unban." },
   run: async function (client, args, flags) {
     const guild = client.target_guild;

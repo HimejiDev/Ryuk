@@ -16,7 +16,7 @@ module.exports = {
     if (folders.includes(category)) {
       var table = new AsciiTable(`${capitalize(category)} Commands`);
       table
-        .setHeading("Name", "Description", "Usage", "Flags", "Aliases")
+        .setHeading("Name", "Description", "Usage", /*"Flags",*/ "Aliases")
         .setBorder("|", "-", "+", "+");
 
       fs.readdirSync(`./src/commands/${category}`).forEach((cmd) => {
@@ -25,11 +25,11 @@ module.exports = {
           command.name,
           command.description,
           command.usage,
-          command.flags
-            ? Object.keys(command.flags)
-                .map((flag) => `${flag}: ${command.flags[flag]}`)
-                .join(", ")
-            : "",
+          // command.flags
+          //   ? Object.keys(command.flags)
+          //       .map((flag) => `${flag}: ${command.flags[flag]}`)
+          //       .join(", ")
+          //   : "",
           command.aliases.join(", ")
         );
       });
@@ -42,11 +42,11 @@ module.exports = {
         });
 
       var lastRow = table.toString().split("\n").slice(-1)[0];
-      var commandLength = "| <command> <arguments> <flags> |".length;
+      var commandLength = "| <> = required, [] = optional |".length;
       var spacesNeeded = lastRow.length - commandLength;
       var spaces = " ".repeat(spacesNeeded > 0 ? spacesNeeded : 0);
 
-      log.info(`| <command> <arguments> <flags> ${spaces}|`);
+      log.info(`| <> = required, [] = optional ${spaces}|`);
       log.info(table.toString().split("\n").slice(-1)[0]);
     } else {
       log.error("Invalid category");
