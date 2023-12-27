@@ -7,7 +7,7 @@ const https = require("https");
 
 client.on("ready", async () => {
   client.user.setPresence({
-    status: "idle",
+    status: client.invisible ? "invisible" : "idle",
     activities: [
       {
         type: ActivityType.Custom,
