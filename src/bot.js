@@ -55,7 +55,7 @@ while (
 }
 if (input.toLowerCase() === "e") {
   log.success(`Exiting...`);
-  process.exit();
+  require("process").exit(0);
 } else if (input.toLowerCase() === "y") {
   try {
     client.INFO = fs.readFileSync("./config", "utf8").split("\n");
