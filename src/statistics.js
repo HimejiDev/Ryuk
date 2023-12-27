@@ -75,6 +75,7 @@ function addNewGuildStats(type, amount, guild) {
       stickers_create: 0,
       stickers_delete: 0,
       messages: 0,
+      direct_messages: 0,
     },
     max: {
       members: guild.memberCount,
@@ -125,6 +126,7 @@ function getGuilds() {
 
 module.exports = {
   bans: (amount, guild) => updateStats("bans", amount, guild),
+  dms: (amount, guild) => updateStats("direct_messages", amount, guild),
   kicks: (amount, guild) => updateStats("kicks", amount, guild),
   mutes: (amount, guild) => updateStats("mutes", amount, guild),
   nukes: (guild) => updateStats("nukes", 0, guild),
