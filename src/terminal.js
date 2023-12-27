@@ -1,4 +1,5 @@
 const log = require("./logger");
+const { parseCommand } = require("./functions");
 
 module.exports = async (client) => {
   const input = log.input();
@@ -7,10 +8,12 @@ module.exports = async (client) => {
   const command =
     client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
 
-  const args = input.split(" ").slice(1);
+  const command_info = parseCommand(input);
+  //const args = input.split(" ").slice(1);
+
   if (command)
     try {
-      await command.run(client, args);
+      await command.run(client, command_info.args, command_info.flags);
     } catch (err) {
       log.error(`Failed to run command ${cmd}: ${err}`, "src/terminal.js");
     }
