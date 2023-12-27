@@ -8,16 +8,16 @@ module.exports = async (client) => {
   const command =
     client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
 
-  const command_info = parseCommand(input);
   //const args = input.split(" ").slice(1);
 
-  if (command)
+  if (command) {
+    const command_info = parseCommand(input);
     try {
       await command.run(client, command_info.args, command_info.flags);
     } catch (err) {
       log.error(`Failed to run command ${cmd}: ${err}`, "src/terminal.js");
     }
-  else !command && input && log.warning(`Command not found: ${cmd}`);
+  } else !command && input && log.warning(`Command not found: ${cmd}`);
 
   // if (cmd === "exit") {
   //   log.success("Exiting bot. Bye!");
