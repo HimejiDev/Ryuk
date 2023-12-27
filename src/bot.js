@@ -70,11 +70,27 @@ if (input.toLowerCase() === "e") {
   client.INFO = [];
 }
 
-const TOKEN = client.INFO[0] || log.input(`\nBot Token`);
+var TOKEN = client.INFO[0] || log.input(`Bot Token`);
 
-log.info(`Logging in...`);
-client.login(TOKEN).catch((error) => {
-  log.error(`Failed to login. | ${error}`, "src/bot.js");
-  log.error(`Exiting...`);
-  require("process").exit(1);
-});
+function login() {
+  log.info(`Attempting to login in...`);
+  client.login(TOKEN).catch((error) => {
+    console.log(error.code);
+    if (error.code === "TokenInvalid") {
+      log.error(`Failed to login, try again. | ${error}`, "src/bot.js");
+      TOKEN = client.INFO[0] || log.input(`Bot Token`);
+      login();
+    } else {
+      log.error(`Failed to login. | ${error}`, "src/bot.js");
+      log.error(`Exiting...`);
+      require("process").exit(1);
+    }
+  });
+}
+
+login();
+
+// ENOTFOUND
+// TokenInvalid
+// GatewayUnavailable
+// GatewayError
