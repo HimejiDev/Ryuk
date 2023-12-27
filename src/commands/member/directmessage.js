@@ -6,9 +6,10 @@ module.exports = {
   name: "directmessage",
   description: "Direct message members from the guild.",
   aliases: ["dm", "privatemessage", "pm"],
-  usage: "directmessage <userids/all/[amount]> [-m]",
+  usage: "directmessage <userids/all/[amount]> [-m -s]",
   flags: {
     "-m": "The message to send.",
+    "-s": "The amount of messages to send.",
   },
   run: async function (client, args, flags) {
     const guild = client.target_guild;
@@ -45,28 +46,34 @@ module.exports = {
       ids = ids.slice(0, amount);
     }
 
-    for (const id of ids) {
-      if (!isNaN(id)) {
-        try {
-          const member = await guild.members.fetch(id.trim());
-          await member.send(flags["m"]);
-          log.success(
-            `${chalk.gray("[")}${chalk.red("-")}${chalk.gray("]")} Send ${
-              flags["-m"]
-            } to ${chalk.white("@" + member.user.tag)} from ${chalk.white(
-              guild.name
-            )}`
-          );
+    for (
+      var i = 0;
+      i < (parseInt(flags["s"]) ? parseInt(flags["s"]) : 1);
+      i++
+    ) {
+      for (const id of ids) {
+        if (!isNaN(id)) {
+          try {
+            const member = await guild.members.fetch(id.trim());
+            await member.send(flags["m"]);
+            log.success(
+              `${chalk.gray("[")}${chalk.red("-")}${chalk.gray("]")} Send ${
+                flags["-m"]
+              } to ${chalk.white("@" + member.user.tag)} from ${chalk.white(
+                guild.name
+              )}`
+            );
 
-          bans++;
-        } catch (err) {
-          log.error(
-            `Failed to send direct message to member with ID ${id.trim()}: ${err}`,
-            "src/commands/member/ban.js"
-          );
+            bans++;
+          } catch (err) {
+            log.error(
+              `Failed to send direct message to member with ID ${id.trim()}: ${err}`,
+              "src/commands/member/ban.js"
+            );
+          }
+        } else {
+          log.error(`Invalid member ID: ${id}`);
         }
-      } else {
-        log.error(`Invalid member ID: ${id}`);
       }
     }
 
