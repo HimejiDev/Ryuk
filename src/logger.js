@@ -1,5 +1,6 @@
 const chalk = require("chalk");
-const prompt = require("prompt-sync")();
+//const prompt = require("prompt-sync")({ sigint: true });
+const readlineSync = require("readline-sync");
 
 const pipe = chalk.dim(chalk.gray("|"));
 const left = chalk.dim(chalk.gray("["));
@@ -61,14 +62,32 @@ function log(level, message, path) {
   );
 }
 
-function input(message) {
-  return prompt(
+function input(message, client) {
+  // return prompt(
+  //   chalk.white(
+  //     `${left}${getDate()}${right} ${left}>${right} ${pipe}${
+  //       message ? ` ${message}` : ""
+  //     } >>> `
+  //   )
+  // );
+  const userInput = readlineSync.question(
     chalk.white(
       `${left}${getDate()}${right} ${left}>${right} ${pipe}${
         message ? ` ${message}` : ""
       } >>> `
-    )
+    ),
+    {
+      history: client.commandHistory,
+      historyIndex: client.historyIndex,
+    }
   );
+
+  if (userInput.trim() !== "") {
+    client.commandHistory.push(userInput);
+    client.historyIndex = client.commandHistory.length;
+  }
+
+  return userInput;
 }
 
 module.exports = {
