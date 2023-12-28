@@ -46,6 +46,11 @@ module.exports = client;
   }
 });
 
+if (!fs.existsSync("config") && fs.existsSync("config.example")) {
+  fs.renameSync("config.example", "config");
+  log.success(`Renamed config file.`);
+}
+
 const input_string = `Load config? [Y]es/[N]o/[E]xit`;
 var input = log.input(input_string, client);
 while (
