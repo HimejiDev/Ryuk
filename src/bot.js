@@ -77,9 +77,9 @@ if (input.toLowerCase() === "e") {
   client.INFO = [];
 }
 
-input = log.input(`Start bot invisible? [Y]es/[N]o`, client);
+input = log.input(`Start bot invisible/offline? [Y]es/[N]o`, client);
 while (input.toLowerCase() !== "y" && input.toLowerCase() !== "n") {
-  input = log.input(`Start bot invisible? [Y]es/[N]o`, client);
+  input = log.input(`Start bot invisible/offline? [Y]es/[N]o`, client);
 }
 client.invisible = input.toLowerCase() === "y" ? true : false;
 
