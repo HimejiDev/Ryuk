@@ -6,17 +6,27 @@ module.exports = {
   name: "help",
   description: "Shows all the commands.",
   aliases: ["h"],
-  usage: "help [category]",
+  usage: "help [category] [-u] [-a] [-f]",
   flags: {},
   run: async function (client, args, flags) {
+    console.log(flags);
     var tables = [];
     const folders = fs.readdirSync(`./src/commands`);
     const category = args[0] ? args[0] : "general";
 
     if (folders.includes(category)) {
+      const views = [flags["u"], flags["a"], flags["f"]];
+      console.log(views);
+
       var table = new AsciiTable(`${capitalize(category)} Commands`);
       table
-        .setHeading("Name", "Description", "Usage", /*"Flags",*/ "Aliases")
+        .setHeading(
+          "Name",
+          "Description",
+          flags["u"] ? "Usage" : null,
+          flags["f"] ? "Flags" : null,
+          flags["a"] ? "Aliases" : null
+        )
         .setBorder("|", "-", "+", "+");
 
       fs.readdirSync(`./src/commands/${category}`).forEach((cmd) => {
@@ -24,13 +34,15 @@ module.exports = {
         table.addRow(
           command.name,
           command.description,
-          command.usage,
-          // command.flags
-          //   ? Object.keys(command.flags)
-          //       .map((flag) => `${flag}: ${command.flags[flag]}`)
-          //       .join(", ")
-          //   : "",
-          command.aliases.join(", ")
+          flags["u"] ? command.usage : null,
+          flags["f"]
+            ? command.flags
+              ? Object.keys(command.flags)
+                  .map((flag) => `${flag}: ${command.flags[flag]}`)
+                  .join(", ")
+              : ""
+            : null,
+          flags["a"] ? command.aliases.join(", ") : null
         );
       });
 
@@ -47,20 +59,26 @@ module.exports = {
       var spaces = " ".repeat(spacesNeeded > 0 ? spacesNeeded : 0);
 
       log.info(`| <> = required, [] = optional ${spaces}|`);
+      //log.info(table.toString().split("\n").slice(-1)[0]);
+
+      commandLength = `| -u = usage, -f = falgs, -a = aliases |`.length;
+      spacesNeeded = lastRow.length - commandLength;
+      spaces = " ".repeat(spacesNeeded > 0 ? spacesNeeded : 0);
+
+      log.info(`| -u = usage, -f = falgs, -a = aliases ${spaces}|`);
+
+      commandLength = `| Categories: ${folders
+        .map((folder) => folder)
+        .join(", ")} |`.length;
+      spacesNeeded = lastRow.length - commandLength;
+      spaces = " ".repeat(spacesNeeded > 0 ? spacesNeeded : 0);
+      log.info(
+        `| Categories: ${folders.map((folder) => folder).join(", ")} ${spaces}|`
+      );
       log.info(table.toString().split("\n").slice(-1)[0]);
     } else {
       log.error("Invalid category");
     }
-
-    commandLength = `| Categories: ${folders
-      .map((folder) => folder)
-      .join(", ")} |`.length;
-    spacesNeeded = lastRow.length - commandLength;
-    spaces = " ".repeat(spacesNeeded > 0 ? spacesNeeded : 0);
-    log.info(
-      `| Categories: ${folders.map((folder) => folder).join(", ")} ${spaces}|`
-    );
-    log.info(table.toString().split("\n").slice(-1)[0]);
   },
 };
 
