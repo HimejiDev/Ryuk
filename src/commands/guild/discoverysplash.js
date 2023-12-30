@@ -2,7 +2,7 @@ const log = require("../../logger");
 
 module.exports = {
   name: "discoverysplash",
-  description: "Changes/Shows the Guild's discovery splash.",
+  description: "Controls the Guild's discovery splash.",
   aliases: ["ds", "dsplash"],
   usage: "discoverysplash [url]",
   flags: {},

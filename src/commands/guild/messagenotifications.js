@@ -3,8 +3,7 @@ const chalk = require("chalk");
 
 module.exports = {
   name: "messagenotifications",
-  description:
-    "Changes/Shows the Guild's Default Message Notifactions Settings.",
+  description: "Controls the Guild's Default Message Notifactions Settings.",
   aliases: ["mn"],
   usage: "messagenotifications [all|mentions]",
   flags: {},

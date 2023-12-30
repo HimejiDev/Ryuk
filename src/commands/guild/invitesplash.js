@@ -2,7 +2,7 @@ const log = require("../../logger");
 
 module.exports = {
   name: "invitesplash",
-  description: "Changes/Shows the Guild's invite splash.",
+  description: "Controls the Guild's invite splash.",
   aliases: ["is", "isplash"],
   usage: "invitesplash [url]",
   flags: {},

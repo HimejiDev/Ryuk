@@ -3,7 +3,7 @@ const chalk = require("chalk");
 
 module.exports = {
   name: "explicitcontentfilter",
-  description: "Changes/Shows the Guild's Explicit Content Filter Settings.",
+  description: "Controls the Guild's Explicit Content Filter Settings.",
   aliases: ["ecf", "contentfilter", "cf"],
   usage: "explicitcontentfilter [all|disabled|noroles]",
   flags: {},

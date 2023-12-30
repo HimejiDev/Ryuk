@@ -3,7 +3,7 @@ const chalk = require("chalk");
 
 module.exports = {
   name: "verificationlevel",
-  description: "Changes/Shows the Guild's Verification Level.",
+  description: "Controls the Guild's Verification Level.",
   aliases: ["vl"],
   usage: "verificationlevel [disabled|low|medium|high|veryhigh]",
   flags: {},

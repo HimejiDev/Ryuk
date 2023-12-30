@@ -2,7 +2,7 @@ const log = require("../../logger");
 
 module.exports = {
   name: "description",
-  description: "Changes/Shows the Guild's name.",
+  description: "Controls the Guild's name.",
   aliases: [],
   usage: "description [description]",
   flags: {},

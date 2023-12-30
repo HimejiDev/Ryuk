@@ -2,7 +2,7 @@ const log = require("../../logger");
 
 module.exports = {
   name: "icon",
-  description: "Changes/Shows the Guild's icon.",
+  description: "Controls the Guild's icon.",
   aliases: [],
   usage: "icon [url]",
   flags: {},

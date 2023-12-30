@@ -3,7 +3,7 @@ const chalk = require("chalk");
 
 module.exports = {
   name: "mfalevel",
-  description: "Changes/Shows the Guild's MFA Level.",
+  description: "Controls the Guild's MFA Level.",
   aliases: ["mfal", "mfa"],
   usage: "mfalevel [on|off]",
   flags: {},
