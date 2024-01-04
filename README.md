@@ -2,24 +2,26 @@
 
 ![Spongebob](spongebob.png)
 
+[~~ DISCORD ~~](https://discord.gg/49rUCrxda9)
+
 ## Description 📝
 
-This project is a multi-purpose tool designed for educational purposes. It provides a range of commands for server management, moderation, and more, with a primary focus on demonstrating how a bot can be used to control a server, including destructive actions like a server nuke 💥. The bot is controlled via the terminal, making it a convenient learning tool for aspiring bot developers and server administrators.
+Ryuk is a multi-purpose tool designed for educational purposes. It provides a range of commands for server management, moderation, and more, with a primary focus on demonstrating how a bot can be used to control a server, including destructive actions like a server nuke 💥. The bot is controlled via the terminal/cli, making it easy to control.
 
 Please use this project responsibly and only in a controlled environment, such as your personal server. Do not use it to disrupt or harm other communities. It is essential to respect Discord's Terms of Service and Community Guidelines.
 
 ## Features 🚀
 
-- **Server Management**: Control various aspects of your server, such as roles, channels, and more.
-- **Moderation Tools 🛡️**: Implement basic moderation features, like kicking and banning members.
+- **CLI Control** 💻: Interact with your bot via your terminal/command prompt.
+- **Server Management** 🛠️: Control various aspects of your server, such as roles, channels, and more.
+- **Moderation Tools** 🛡️: Basic moderation features, like kicking, muting and banning members.
+- **Customizability** 🎨: Change the bots appearance, and/or add your own commands.
+- **Custom Code Execution** 💡: Easily execute code without restarting using the `eval` command.
 - **Server Nuke 💣**: Execute a server nuke command to demonstrate its impact (for educational purposes only).
-- **Terminal Control 💻**: Interact with the bot via your terminal to learn how to manage a Discord bot programmatically.
-- **Execute Code 💡**: Easily execute code with the `eval` command.
-- **Add Your Own Commands 🛠️**: Adding your own commands is very easy.
 
 ## Getting Started 🛠️
 
-1. **Prerequisites**: Before using this project, ensure you have Node.js and npm installed on your computer.
+1. **Prerequisites**: Before using this project, ensure you have [Node.js](https://nodejs.org/en) and npm installed on your computer. And have an application/bot created here: [Discord Developer Portal](https://discord.com/developers/applications)
 
 2. **Clone the Repository**: Clone this repository to your local machine:
 
@@ -38,8 +40,8 @@ npm install
 
 5. **Configure the Bot**:
 
-- Create a Discord Bot and obtain the token from the [Discord Developer Portal](https://discord.com/developers/applications).
-- You can either input the _TOKEN_ and _GUILD ID_ when starting or create a `config` file (no extention):
+- Obtain the bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
+- You can either input the _TOKEN_ and _GUILD ID_ when starting or use the `config` file:
 
 ```
 YOUR_BOT_TOKEN
@@ -56,13 +58,42 @@ YOUR_WEBHOOK_URL
 npm start
 ```
 
-7. **Bot Commands**: Access the bot's commands in the server and explore its features. Please use the commands responsibly.
+7. **Bot Commands**: Access the bot's commands in the server and explore its features. Please use the commands responsibly. Use `help` for more information.
 
 ## Usage 🕹️
 
 - For a list of available commands, type `help` in the terminal.
 - Use the bot commands to manage your server and explore its capabilities.
 - Join the [discord](https://discord.gg/49rUCrxda9) for updates and support.
+
+### Commands 🔗
+
+```
+help - Displays
+```
+
+### Creating a Command 🛠️
+
+- Create a javascript in a directory inside the `src/commands` folder. For example: `src/command/customcommands/custom_command.js`
+- Paste the following template, and make changes where necessary.
+
+```javascript
+const log = require("../../logger");
+const chalk = require("chalk");
+
+module.exports = {
+  name: "ccommand",
+  description: "A custom command.",
+  aliases: ["cc"],
+  usage: "ccomand",
+  flags: {},
+  run: async function (client, args, flags) {
+    log.debug(`Ping? Pong!`);
+  },
+};
+```
+
+- Check other commands for inspiration, or how to use certain items.
 
 ## Disclaimer ⚠️
 
