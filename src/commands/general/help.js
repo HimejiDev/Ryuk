@@ -9,14 +9,12 @@ module.exports = {
   usage: "help [category] [-u] [-a] [-f]",
   flags: {},
   run: async function (client, args, flags) {
-    console.log(flags);
     var tables = [];
     const folders = fs.readdirSync(`./src/commands`);
     const category = args[0] ? args[0] : "general";
 
     if (folders.includes(category)) {
       const views = [flags["u"], flags["a"], flags["f"]];
-      console.log(views);
 
       var table = new AsciiTable(`${capitalize(category)} Commands`);
       table
