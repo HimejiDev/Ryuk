@@ -41,6 +41,7 @@ npm install
 5. **Configure the Bot**:
 
 - Obtain the bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
+- Enable all the "Privileged Gateway Intents" in the [Discord Developer Portal](https://discord.com/developers/applications), under the "Bot" tab.
 - You can either input the _TOKEN_ and _GUILD ID_ when starting or use the `config` file:
 
 ```
