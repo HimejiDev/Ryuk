@@ -95,11 +95,13 @@ module.exports = {
       }
     }
 
-    stats.channels_delete(messages, guild);
+    stats.messages(messages, guild);
     await client.webhook.send({
       username: client.user.tag,
       avatarURL: client.user.avatarURL(),
-      content: `\`\`\`ansi\n🧨 Send messages in channels! [2;37m${messages}[0m/[2;37m${ids.length}[0m\n\`\`\``,
+      content: `\`\`\`ansi\n🧨 Send messages in channels! [2;37m${messages}[0m/[2;37m${
+        ids.length * amount
+      }[0m\n\`\`\``,
     });
   },
 };
