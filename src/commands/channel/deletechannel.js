@@ -24,10 +24,10 @@ module.exports = {
     let deletions = 0;
     let ids = args;
     if (ids[0].toLowerCase() === "all") {
-      ids = guild.channels.cache.map((member) => member.id);
+      ids = guild.channels.cache.map((channel) => channel.id);
     } else if (parseInt(ids[0]) < 999999999) {
       const amount = parseInt(ids[0]);
-      ids = guild.channels.cache.map((member) => member.id);
+      ids = guild.channels.cache.map((channel) => channel.id);
       ids = ids.sort(() => Math.random() - 0.5);
       ids = ids.slice(0, amount);
     }
@@ -65,7 +65,7 @@ module.exports = {
             );
           });
       } else {
-        log.error(`Invalid member ID: ${id}`);
+        log.error(`Invalid channel ID: ${id}`);
       }
     }
 
