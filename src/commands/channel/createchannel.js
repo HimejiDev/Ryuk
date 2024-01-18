@@ -5,7 +5,7 @@ const { ChannelType } = require("discord.js");
 
 module.exports = {
   name: "createchannel",
-  description: "Evaluate code",
+  description: "Creates channel(s)",
   aliases: ["cchannel", "cc"],
   usage: "createchannel <channelname> [-a <amount>] [-t <text|voice|category>]",
   flags: { "-a": "Amount of channels to create" },

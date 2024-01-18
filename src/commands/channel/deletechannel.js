@@ -5,7 +5,7 @@ const { ChannelType } = require("discord.js");
 
 module.exports = {
   name: "deletechannel",
-  description: "Evaluate code",
+  description: "Deletes channel(s)",
   aliases: ["dchannel", "dc"],
   usage: "deletechannel <channelids/all/[amount]>",
   flags: {},
