@@ -70,6 +70,8 @@ function addNewGuildStats(type, amount, guild) {
       channels_delete: 0,
       roles_create: 0,
       roles_delete: 0,
+      roles_assigned: 0,
+      roles_removed: 0,
       emojis_create: 0,
       emojis_delete: 0,
       stickers_create: 0,
@@ -136,6 +138,9 @@ module.exports = {
     updateStats("channels_delete", amount, guild),
   roles_create: (amount, guild) => updateStats("roles_create", amount, guild),
   roles_delete: (amount, guild) => updateStats("roles_delete", amount, guild),
+  roles_assigned: (amount, guild) =>
+    updateStats("roles_assigned", amount, guild),
+  roles_removed: (amount, guild) => updateStats("roles_removed", amount, guild),
   emojis_create: (amount, guild) => updateStats("emojis_create", amount, guild),
   emojis_delete: (amount, guild) => updateStats("emojis_delete", amount, guild),
   stickers_create: (amount, guild) =>
