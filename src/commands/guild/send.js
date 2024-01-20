@@ -67,7 +67,8 @@ module.exports = {
                 log.error(
                   `Failed to send message in channel ${chalk.white(
                     id
-                  )} | ${err}`
+                  )} | ${err}`,
+                  "src/commands/guild/send.js"
                 )
               );
           } else {
@@ -85,7 +86,8 @@ module.exports = {
                 log.error(
                   `Failed to send message in channel ${chalk.white(
                     id
-                  )} | ${err}`
+                  )} | ${err}`,
+                  "src/commands/guild/send.js"
                 )
               );
           }

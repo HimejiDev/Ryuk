@@ -68,7 +68,7 @@ module.exports = {
           } catch (err) {
             log.error(
               `Failed to send direct message to member with ID ${id.trim()}: ${err}`,
-              "src/commands/member/ban.js"
+              "src/commands/member/directmessage.js"
             );
           }
         } else {

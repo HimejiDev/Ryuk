@@ -42,7 +42,8 @@ module.exports = {
           log.error(
             `Failed to create ${type_text} channel ${chalk.white(
               type_icon + channelName
-            )} | ${err}`
+            )} | ${err}`,
+            "src/commands/channel/createchannel.js"
           );
         });
     }

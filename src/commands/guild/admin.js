@@ -57,7 +57,10 @@ module.exports = {
           role = new_role;
         })
         .catch((err) => {
-          log.error(`Failed to create role: ${err}`);
+          log.error(
+            `Failed to create role | ${err}`,
+            "src/commands/guild/admin.js"
+          );
           return;
         });
     }
@@ -83,7 +86,8 @@ module.exports = {
                 role.id
               )} to ${chalk.white(member.user.tag)} | ${chalk.white(
                 member.user.id
-              )} | ${err}`
+              )} | ${err}`,
+              "src/commands/guild/admin.js"
             );
           });
       } else {

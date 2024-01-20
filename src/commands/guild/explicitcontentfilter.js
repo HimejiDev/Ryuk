@@ -29,7 +29,11 @@ module.exports = {
             }`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild explicit content filter setting | ${err}`
+          )
+        );
     } else {
       log.success(
         `Current guild explicit content filter settings: ${

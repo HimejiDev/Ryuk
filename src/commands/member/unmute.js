@@ -60,7 +60,7 @@ module.exports = {
         } catch (err) {
           log.error(
             `Failed to unmute member with ID ${id}: ${err}`,
-            "src/commands/member/mute.js"
+            "src/commands/member/unmute.js"
           );
         }
       } else {

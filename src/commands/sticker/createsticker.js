@@ -39,7 +39,10 @@ module.exports = {
           creations++;
         })
         .catch((err) => {
-          log.error(`Failed to create sticker ${chalk.white(name)} | ${err}`);
+          log.error(
+            `Failed to create sticker ${chalk.white(name)} | ${err}`,
+            "src/commands/sticker/createsticker.js"
+          );
         });
     }
 

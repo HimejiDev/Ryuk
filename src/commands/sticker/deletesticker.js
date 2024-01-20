@@ -40,7 +40,10 @@ module.exports = {
             deletions++;
           })
           .catch((err) => {
-            log.error(`Failed to delete sticker ${chalk.white(id)} | ${err}`);
+            log.error(
+              `Failed to delete sticker ${chalk.white(id)} | ${err}`,
+              "src/commands/sticker/deletesticker.js"
+            );
           });
       } else {
         log.error(`Invalid sticker ID: ${id}`);

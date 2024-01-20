@@ -16,7 +16,12 @@ module.exports = {
         .then((updated) =>
           log.success(`Changed guild banner: ${updated.bannerURL()}`)
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild banner | ${err}`,
+            "src/commands/guild/banner.js"
+          )
+        );
     } else {
       log.success(`Current guild banner: ${guild.bannerURL()}`);
     }

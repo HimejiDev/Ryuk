@@ -61,7 +61,8 @@ module.exports = {
             log.error(
               `Failed to delete ${type_text} channel ${chalk.white(
                 id
-              )} | ${err}`
+              )} | ${err}`,
+              "src/commands/channel/deletechannel.js"
             );
           });
       } else {

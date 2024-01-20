@@ -38,7 +38,8 @@ module.exports = {
         })
         .catch((err) => {
           log.error(
-            `Failed to create emoji ${chalk.white(":" + name + ":")} | ${err}`
+            `Failed to create emoji ${chalk.white(":" + name + ":")} | ${err}`,
+            "src/commands/emoji/createemoji.js"
           );
         });
     }

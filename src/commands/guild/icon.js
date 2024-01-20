@@ -16,7 +16,12 @@ module.exports = {
         .then((updated) =>
           log.success(`Changed guild icon: ${updated.iconURL()}`)
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild icon | ${err}`,
+            "src/commands/guild/icon.js"
+          )
+        );
     } else {
       log.success(`Current guild icon: ${guild.iconURL()}`);
     }

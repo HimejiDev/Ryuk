@@ -33,7 +33,8 @@ module.exports = {
         })
         .catch((err) => {
           log.error(
-            `Failed to create role ${chalk.white("@" + roleName)} | ${err}`
+            `Failed to create role ${chalk.white("@" + roleName)} | ${err}`,
+            "src/commands/role/createrole.js"
           );
         });
     }

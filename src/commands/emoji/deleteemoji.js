@@ -40,7 +40,10 @@ module.exports = {
             deletions++;
           })
           .catch((err) => {
-            log.error(`Failed to delete emoji ${chalk.white(id)} | ${err}`);
+            log.error(
+              `Failed to delete emoji ${chalk.white(id)} | ${err}`,
+              "src/commands/emoji/deleteemoji.js"
+            );
           });
       } else {
         log.error(`Invalid emoji ID: ${id}`);

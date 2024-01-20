@@ -20,7 +20,12 @@ module.exports = {
             }`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild MFA level | ${err}`,
+            "src/commands/guild/mfalevel.js"
+          )
+        );
     } else {
       log.success(
         `Current guild MFA level: ${

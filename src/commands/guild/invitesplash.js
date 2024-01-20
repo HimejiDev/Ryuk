@@ -16,7 +16,12 @@ module.exports = {
         .then((updated) =>
           log.success(`Changed guild invite splash: ${updated.splashURL()}`)
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild invite splash | ${err}`,
+            "src/commands/guild/invitesplash.js"
+          )
+        );
     } else {
       log.success(`Current guild invite splash: ${guild.splashURL()}`);
     }

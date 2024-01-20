@@ -20,7 +20,12 @@ module.exports = {
             )}`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change safety alerts channel | ${err}`,
+            "src/commands/guild/safetyalertschannel.js"
+          )
+        );
     } else {
       log.success(
         `Current safety alerts channel: ${chalk.white(

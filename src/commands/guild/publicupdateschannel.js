@@ -20,7 +20,12 @@ module.exports = {
             )}`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change public updates channel | ${err}`,
+            "src/commands/guild/publicupdateschannel.js"
+          )
+        );
     } else {
       log.success(
         `Current public updates channel: ${chalk.white(

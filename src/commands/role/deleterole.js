@@ -40,7 +40,10 @@ module.exports = {
             deletions++;
           })
           .catch((err) => {
-            log.error(`Failed to delete role ${chalk.white(id)} | ${err}`);
+            log.error(
+              `Failed to delete role ${chalk.white(id)} | ${err}`,
+              "src/commands/role/deleterole.js"
+            );
           });
       } else {
         log.error(`Invalid role ID: ${id}`);

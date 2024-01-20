@@ -18,7 +18,12 @@ module.exports = {
             `Changed guild discovery splash: ${updated.discoverySplashURL()}`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild discovery splash | ${err}`,
+            "src/commands/guild/discoverysplash.js"
+          )
+        );
     } else {
       log.success(
         `Current guild discovery splash: ${guild.discoverySplashURL()}`

@@ -18,7 +18,12 @@ module.exports = {
         .then((updated) =>
           log.success(`Changed guild description: ${updated.description}`)
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild description | ${err}`,
+            "src/commands/guild/description.js"
+          )
+        );
     } else {
       log.success(`Current guild description: ${guild.description}`);
     }

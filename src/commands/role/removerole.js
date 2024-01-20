@@ -53,7 +53,8 @@ module.exports = {
                 role.id
               )} from ${chalk.white(member.user.tag)} | ${chalk.white(
                 member.user.id
-              )} | ${err}`
+              )} | ${err}`,
+              "src/commands/role/removerole.js"
             );
           });
       } else {

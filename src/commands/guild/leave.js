@@ -22,6 +22,11 @@ module.exports = {
     await guild
       .leave()
       .then((guild) => log.success(`Left guild ${chalk.white(guild.name)}`))
-      .catch((err) => log.error(err, "src/commands/server/send.js"));
+      .catch((err) =>
+        log.error(
+          `Failed to leave guild ${chalk.white(guild.name)} | ${err}`,
+          "src/commands/server/leave.js"
+        )
+      );
   },
 };

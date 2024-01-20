@@ -14,7 +14,12 @@ module.exports = {
       await guild
         .setName(name)
         .then((updated) => log.success(`Changed guild name: ${updated.name}`))
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild name | ${err}`,
+            "src/commands/guild/name.js"
+          )
+        );
     } else {
       log.success(`Current guild name: ${guild.name}`);
     }

@@ -35,7 +35,12 @@ module.exports = {
             }`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild verification level | ${err}`,
+            "src/commands/guild/verificationlevel.js"
+          )
+        );
     } else {
       log.success(
         `Current guild verification level: ${

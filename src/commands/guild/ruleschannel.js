@@ -20,7 +20,12 @@ module.exports = {
             )}`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change rules channel | ${err}`,
+            "src/commands/guild/ruleschannel.js"
+          )
+        );
     } else {
       log.success(
         `Current public updates channel: ${chalk.white(

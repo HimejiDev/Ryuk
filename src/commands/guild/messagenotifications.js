@@ -22,7 +22,12 @@ module.exports = {
             }`
           )
         )
-        .catch((err) => log.error(err));
+        .catch((err) =>
+          log.error(
+            `Failed to change guild default notifications settings | ${err}`,
+            "src/commands/guild/messagenotifications.js"
+          )
+        );
     } else {
       log.success(
         `Current guild default notifications settings: ${
