@@ -32,7 +32,11 @@ module.exports = {
         await role
           .delete("🧨")
           .then((c) => {
-            log.success(`Deleted role ${chalk.white("@" + role.name)}`);
+            log.success(
+              `Deleted role ${chalk.white("@" + role.name)} | ${chalk.white(
+                id
+              )}`
+            );
             deletions++;
           })
           .catch((err) => {

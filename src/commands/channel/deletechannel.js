@@ -53,7 +53,7 @@ module.exports = {
             log.success(
               `Deleted ${type_text} channel ${chalk.white(
                 type_icon + channel.name
-              )}`
+              )} | ${chalk.white(id)}`
             );
             deletions++;
           })

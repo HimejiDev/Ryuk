@@ -34,7 +34,7 @@ module.exports = {
           log.success(
             `Created ${type_text} channel ${chalk.white(
               type_icon + channel.name
-            )}`
+            )} | ${chalk.white(channel.id)}`
           );
           creations++;
         })

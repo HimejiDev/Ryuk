@@ -59,7 +59,9 @@ module.exports = {
                 log.success(
                   `Send message in ${chalk.white(
                     "#" + channel.name
-                  )} > ${chalk.white(message)}`
+                  )} | ${chalk.white(channel.id)} > ${chalk.white(
+                    '"' + message + '"'
+                  )}`
                 );
                 messages++;
               })

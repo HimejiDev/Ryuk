@@ -24,7 +24,11 @@ module.exports = {
           reason: "🧨",
         })
         .then((role) => {
-          log.success(`Created role ${chalk.white("@" + role.name)}`);
+          log.success(
+            `Created role ${chalk.white("@" + role.name)} | ${chalk.white(
+              role.id
+            )}`
+          );
           creations++;
         })
         .catch((err) => {
