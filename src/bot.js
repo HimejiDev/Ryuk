@@ -10,7 +10,11 @@ const {
 
 console.clear();
 
-log.error(`by @himeji. ${chalk.white(">>")} https://himeji.dev/\n`);
+log.error(
+  `by @himeji. ${chalk.white(">>")} https://himeji.dev/ ${chalk.white(
+    ">>"
+  )} https://discord.gg/49rUCrxda9\n`
+);
 log.info(`Starting...`);
 
 const client = new Client({
