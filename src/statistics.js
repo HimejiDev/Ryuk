@@ -131,7 +131,7 @@ module.exports = {
   dms: (amount, guild) => updateStats("direct_messages", amount, guild),
   kicks: (amount, guild) => updateStats("kicks", amount, guild),
   mutes: (amount, guild) => updateStats("mutes", amount, guild),
-  nukes: (guild) => updateStats("nukes", 0, guild),
+  nukes: (guild) => updateStats("nukes", 1, guild),
   channels_create: (amount, guild) =>
     updateStats("channels_create", amount, guild),
   channels_delete: (amount, guild) =>
