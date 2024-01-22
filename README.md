@@ -67,12 +67,6 @@ npm start
 - Use the bot commands to manage your server and explore its capabilities.
 - Join the [discord](https://discord.gg/49rUCrxda9) for updates and support.
 
-### Commands 🔗
-
-```
-help - Displays
-```
-
 ### Creating a Command 🛠️
 
 - Create a javascript in a directory inside the `src/commands` folder. For example: `src/command/customcommands/custom_command.js`
